@@ -23,7 +23,7 @@ namespace DiscordDiscovery
             InitializeComponent();
         }
 
-        private const double SCALE = 1.5;
+        private const double SCALE = 1.1;
         bool is_stream_clicked = false;//help to control Pause, Resume
         private Thread chart_thread;
         private ManualResetEvent manualResetEvent = new ManualResetEvent(true);
@@ -147,7 +147,11 @@ namespace DiscordDiscovery
                         try
                         {
                             // call updateChart fucntion in GUI thread by chart thread
-                            this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH); });
+
+                            if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
+                                this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH); });
+                            else
+                                this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH); });
                         }
                         catch
                         { }
@@ -379,7 +383,11 @@ namespace DiscordDiscovery
                     try
                     {
                         // call updateChart fucntion in GUI thread by chart thread
-                        this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH); });
+
+                        if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
+                            this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH); });
+                        else
+                            this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH); });
                     }
                     catch
                     { }
@@ -545,14 +553,17 @@ namespace DiscordDiscovery
             //normalize buffer:
             List<double> norm_buffer = HOTSAX.HOTSAX.normalizeData(raw_buffer, buffer_len, N_LENGTH);
 
-            /**
-             * 
-            chart_timeSeries.ChartAreas[0].AxisY.Maximum = norm_buffer.Max() * SCALE;// /SCALE;
-            chart_timeSeries.ChartAreas[0].AxisY.Minimum = norm_buffer.Min() / SCALE;
+            if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
+            {
+                //SCALE:
+                chart_timeSeries.ChartAreas[0].AxisY.Maximum = raw_buffer.Max() * SCALE;
+                chart_timeSeries.ChartAreas[0].AxisY.Minimum = raw_buffer.Min() / SCALE;
+
+                // turn the labels off:
+                chart_timeSeries.ChartAreas["ChartArea1"].AxisX.LabelStyle.Enabled = false;//turn off X-axis labels
+                chart_timeSeries.ChartAreas["ChartArea1"].AxisY.LabelStyle.Enabled = false;//turn off Y-axis labels
+            }
             
-             */
-            // chart_timeSeries.ChartAreas["ChartArea1"].AxisX.LabelStyle.Enabled = false;//turn off X-axis labels
-            // chart_timeSeries.ChartAreas["ChartArea1"].AxisY.LabelStyle.Enabled = false;//turn off Y-axis labels
 
 
             //updateChart(raw_buffer, (int)result[1], N_LENGTH);
