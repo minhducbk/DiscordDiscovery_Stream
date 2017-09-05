@@ -87,7 +87,7 @@
             // btn_getW
             // 
             this.btn_getW.Location = new System.Drawing.Point(356, 138);
-            this.btn_getW.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_getW.Margin = new System.Windows.Forms.Padding(6);
             this.btn_getW.Name = "btn_getW";
             this.btn_getW.Size = new System.Drawing.Size(156, 44);
             this.btn_getW.TabIndex = 10;
@@ -98,7 +98,7 @@
             // txt_threshold
             // 
             this.txt_threshold.Location = new System.Drawing.Point(184, 142);
-            this.txt_threshold.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_threshold.Margin = new System.Windows.Forms.Padding(6);
             this.txt_threshold.Name = "txt_threshold";
             this.txt_threshold.Size = new System.Drawing.Size(156, 31);
             this.txt_threshold.TabIndex = 14;
@@ -127,7 +127,7 @@
             // txt_period_max
             // 
             this.txt_period_max.Location = new System.Drawing.Point(184, 85);
-            this.txt_period_max.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_period_max.Margin = new System.Windows.Forms.Padding(6);
             this.txt_period_max.Name = "txt_period_max";
             this.txt_period_max.Size = new System.Drawing.Size(156, 31);
             this.txt_period_max.TabIndex = 34;
@@ -135,7 +135,7 @@
             // btn_Period
             // 
             this.btn_Period.Location = new System.Drawing.Point(356, 81);
-            this.btn_Period.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_Period.Margin = new System.Windows.Forms.Padding(6);
             this.btn_Period.Name = "btn_Period";
             this.btn_Period.Size = new System.Drawing.Size(156, 44);
             this.btn_Period.TabIndex = 31;
@@ -146,7 +146,7 @@
             // btn_stopStream
             // 
             this.btn_stopStream.Location = new System.Drawing.Point(264, 785);
-            this.btn_stopStream.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_stopStream.Margin = new System.Windows.Forms.Padding(6);
             this.btn_stopStream.Name = "btn_stopStream";
             this.btn_stopStream.Size = new System.Drawing.Size(118, 54);
             this.btn_stopStream.TabIndex = 23;
@@ -157,7 +157,7 @@
             // btn_STREAM
             // 
             this.btn_STREAM.Location = new System.Drawing.Point(122, 785);
-            this.btn_STREAM.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_STREAM.Margin = new System.Windows.Forms.Padding(6);
             this.btn_STREAM.Name = "btn_STREAM";
             this.btn_STREAM.Size = new System.Drawing.Size(120, 54);
             this.btn_STREAM.TabIndex = 15;
@@ -168,7 +168,7 @@
             // btn_clear
             // 
             this.btn_clear.Location = new System.Drawing.Point(22, 785);
-            this.btn_clear.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_clear.Margin = new System.Windows.Forms.Padding(6);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(88, 54);
             this.btn_clear.TabIndex = 5;
@@ -215,9 +215,9 @@
             this.groupBox1.Controls.Add(this.btn_STREAM);
             this.groupBox1.Controls.Add(this.btn_clear);
             this.groupBox1.Location = new System.Drawing.Point(6, 212);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(534, 850);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
@@ -227,7 +227,7 @@
             // 
             this.combox_algorithm.FormattingEnabled = true;
             this.combox_algorithm.Location = new System.Drawing.Point(210, 25);
-            this.combox_algorithm.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.combox_algorithm.Margin = new System.Windows.Forms.Padding(6);
             this.combox_algorithm.Name = "combox_algorithm";
             this.combox_algorithm.Size = new System.Drawing.Size(288, 33);
             this.combox_algorithm.TabIndex = 136;
@@ -255,7 +255,7 @@
             // txt_threshold_sim
             // 
             this.txt_threshold_sim.Location = new System.Drawing.Point(206, 519);
-            this.txt_threshold_sim.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_threshold_sim.Margin = new System.Windows.Forms.Padding(6);
             this.txt_threshold_sim.Name = "txt_threshold_sim";
             this.txt_threshold_sim.Size = new System.Drawing.Size(290, 31);
             this.txt_threshold_sim.TabIndex = 133;
@@ -264,7 +264,7 @@
             // txt_bufferLength
             // 
             this.txt_bufferLength.Location = new System.Drawing.Point(310, 356);
-            this.txt_bufferLength.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_bufferLength.Margin = new System.Windows.Forms.Padding(6);
             this.txt_bufferLength.Name = "txt_bufferLength";
             this.txt_bufferLength.Size = new System.Drawing.Size(74, 31);
             this.txt_bufferLength.TabIndex = 119;
@@ -274,7 +274,7 @@
             // txt_threshold_std
             // 
             this.txt_threshold_std.Location = new System.Drawing.Point(208, 463);
-            this.txt_threshold_std.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_threshold_std.Margin = new System.Windows.Forms.Padding(6);
             this.txt_threshold_std.Name = "txt_threshold_std";
             this.txt_threshold_std.Size = new System.Drawing.Size(290, 31);
             this.txt_threshold_std.TabIndex = 126;
@@ -283,7 +283,7 @@
             // txt_threshold_mean
             // 
             this.txt_threshold_mean.Location = new System.Drawing.Point(206, 406);
-            this.txt_threshold_mean.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_threshold_mean.Margin = new System.Windows.Forms.Padding(6);
             this.txt_threshold_mean.Name = "txt_threshold_mean";
             this.txt_threshold_mean.Size = new System.Drawing.Size(292, 31);
             this.txt_threshold_mean.TabIndex = 125;
@@ -292,7 +292,7 @@
             // txt_period
             // 
             this.txt_period.Location = new System.Drawing.Point(206, 300);
-            this.txt_period.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_period.Margin = new System.Windows.Forms.Padding(6);
             this.txt_period.Name = "txt_period";
             this.txt_period.Size = new System.Drawing.Size(290, 31);
             this.txt_period.TabIndex = 129;
@@ -302,7 +302,7 @@
             // txt_WLength
             // 
             this.txt_WLength.Location = new System.Drawing.Point(208, 244);
-            this.txt_WLength.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_WLength.Margin = new System.Windows.Forms.Padding(6);
             this.txt_WLength.Name = "txt_WLength";
             this.txt_WLength.Size = new System.Drawing.Size(288, 31);
             this.txt_WLength.TabIndex = 116;
@@ -311,7 +311,7 @@
             // txt_NLength
             // 
             this.txt_NLength.Location = new System.Drawing.Point(210, 183);
-            this.txt_NLength.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_NLength.Margin = new System.Windows.Forms.Padding(6);
             this.txt_NLength.Name = "txt_NLength";
             this.txt_NLength.Size = new System.Drawing.Size(288, 31);
             this.txt_NLength.TabIndex = 114;
@@ -320,7 +320,7 @@
             // txt_stream_data
             // 
             this.txt_stream_data.Location = new System.Drawing.Point(210, 129);
-            this.txt_stream_data.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_stream_data.Margin = new System.Windows.Forms.Padding(6);
             this.txt_stream_data.Name = "txt_stream_data";
             this.txt_stream_data.Size = new System.Drawing.Size(286, 31);
             this.txt_stream_data.TabIndex = 121;
@@ -339,7 +339,7 @@
             // 
             this.combox_filename.FormattingEnabled = true;
             this.combox_filename.Location = new System.Drawing.Point(210, 77);
-            this.combox_filename.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.combox_filename.Margin = new System.Windows.Forms.Padding(6);
             this.combox_filename.Name = "combox_filename";
             this.combox_filename.Size = new System.Drawing.Size(288, 33);
             this.combox_filename.TabIndex = 118;
@@ -460,7 +460,7 @@
             // 
             this.txtMinEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinEntry.Location = new System.Drawing.Point(206, 683);
-            this.txtMinEntry.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtMinEntry.Margin = new System.Windows.Forms.Padding(6);
             this.txtMinEntry.Name = "txtMinEntry";
             this.txtMinEntry.Size = new System.Drawing.Size(290, 32);
             this.txtMinEntry.TabIndex = 112;
@@ -470,7 +470,7 @@
             // 
             this.txtMaxEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaxEntry.Location = new System.Drawing.Point(204, 621);
-            this.txtMaxEntry.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtMaxEntry.Margin = new System.Windows.Forms.Padding(6);
             this.txtMaxEntry.Name = "txtMaxEntry";
             this.txtMaxEntry.Size = new System.Drawing.Size(292, 32);
             this.txtMaxEntry.TabIndex = 111;
@@ -480,7 +480,7 @@
             // 
             this.txtR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtR.Location = new System.Drawing.Point(204, 569);
-            this.txtR.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtR.Margin = new System.Windows.Forms.Padding(6);
             this.txtR.Name = "txtR";
             this.txtR.Size = new System.Drawing.Size(292, 32);
             this.txtR.TabIndex = 110;
@@ -532,7 +532,7 @@
             // btn_statistic
             // 
             this.btn_statistic.Location = new System.Drawing.Point(394, 785);
-            this.btn_statistic.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_statistic.Margin = new System.Windows.Forms.Padding(6);
             this.btn_statistic.Name = "btn_statistic";
             this.btn_statistic.Size = new System.Drawing.Size(108, 54);
             this.btn_statistic.TabIndex = 39;
@@ -553,7 +553,7 @@
             // txt_data_to_calc_W
             // 
             this.txt_data_to_calc_W.Location = new System.Drawing.Point(184, 29);
-            this.txt_data_to_calc_W.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_data_to_calc_W.Margin = new System.Windows.Forms.Padding(6);
             this.txt_data_to_calc_W.Name = "txt_data_to_calc_W";
             this.txt_data_to_calc_W.Size = new System.Drawing.Size(324, 31);
             this.txt_data_to_calc_W.TabIndex = 18;
@@ -575,7 +575,7 @@
             legend1.Name = "Legend1";
             this.chart_timeSeries.Legends.Add(legend1);
             this.chart_timeSeries.Location = new System.Drawing.Point(564, 23);
-            this.chart_timeSeries.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chart_timeSeries.Margin = new System.Windows.Forms.Padding(6);
             this.chart_timeSeries.Name = "chart_timeSeries";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -603,9 +603,9 @@
             this.Estimate_Period.Controls.Add(this.label3);
             this.Estimate_Period.Controls.Add(this.btn_Period);
             this.Estimate_Period.Location = new System.Drawing.Point(6, 2);
-            this.Estimate_Period.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Estimate_Period.Margin = new System.Windows.Forms.Padding(6);
             this.Estimate_Period.Name = "Estimate_Period";
-            this.Estimate_Period.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Estimate_Period.Padding = new System.Windows.Forms.Padding(6);
             this.Estimate_Period.Size = new System.Drawing.Size(534, 198);
             this.Estimate_Period.TabIndex = 39;
             this.Estimate_Period.TabStop = false;
@@ -619,9 +619,9 @@
             this.Controls.Add(this.Estimate_Period);
             this.Controls.Add(this.chart_timeSeries);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Main_Form";
-            this.Text = "HOTSAX_STREAM ver 2.1-Sep 4th 2017";
+            this.Text = "HOTSAX_STREAM ver 2.2-Sep 4th 2017";
             this.Load += new System.EventHandler(this.form_SAX_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

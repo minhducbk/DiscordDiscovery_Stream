@@ -1,0 +1,10 @@
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\bin\Release\DiscordDiscovery.exe.config
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\bin\Release\DiscordDiscovery.exe
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\bin\Release\DiscordDiscovery.pdb
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\bin\Release\log4net.dll
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\bin\Release\log4net.xml
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\obj\Release\DiscordDiscovery.Main_Form.resources
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\obj\Release\DiscordDiscovery.Properties.Resources.resources
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\obj\Release\DiscordDiscovery_Stream.csproj.GenerateResource.Cache
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\obj\Release\DiscordDiscovery.exe
+C:\Users\Chau_W10\Documents\Thesis\DiscordDiscovery_Stream\DiscordDiscovery\obj\Release\DiscordDiscovery.pdb

@@ -897,7 +897,7 @@ namespace DiscordDiscovery.BoundingBox
                     if (dist < nearest_neighbor_dist)
                     {
                         nearest_neighbor_dist = dist;
-                        best_so_far_loc = p_inner; //store best_so_far_loc
+                       // best_so_far_loc = p_inner; //store best_so_far_loc
                     }
 
                     if (dist < threshold_dist)
@@ -908,6 +908,7 @@ namespace DiscordDiscovery.BoundingBox
 
             if (nearest_neighbor_dist > threshold_dist)
             {
+                best_so_far_loc = q_outer;
                 Console.WriteLine("Discord!\nbest_so_far_loc = " + best_so_far_loc + "\nbest_so_far_dist = " + nearest_neighbor_dist);
             }
             else
