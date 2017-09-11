@@ -915,6 +915,7 @@ namespace DiscordDiscovery.BoundingBox
             {
                 Console.WriteLine("No discord");
                 best_so_far_loc = -1;
+                nearest_neighbor_dist = -1;
             }
 
             return new List<double>() { nearest_neighbor_dist, best_so_far_loc }; //return "-1" if there is no discord.

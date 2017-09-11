@@ -117,6 +117,7 @@ namespace DiscordDiscovery
 
                 if (is_the_first_time)
                 {
+                    watch2 = System.Diagnostics.Stopwatch.StartNew();///calc execution time
                     switch (algorithm)
                     {
                         case "HOTSAX_Squeezer_Stream":
@@ -128,14 +129,19 @@ namespace DiscordDiscovery
                                     ref tree, ref count_table, ref total_table, true);
                             break;
                         case "Bounding_Box":
-                        case "Sanchez_Method":
                             result = BoundingBox.BoundingBoxDiscordDiscovery.RunOfflineMinDist(raw_buffer, N_LENGTH, maxEntry, minEntry, R, W_LENGTH, ref this_id_item, ref this_id_itemList, ref this_recList, ref this_RTree, true);
                             this_best_so_far_dist = result[0];
                             this_best_so_far_loc = result[1];
+                            break;
+                        case "Sanchez_Method":
+                            result = BoundingBox.BoundingBoxDiscordDiscovery.RunOfflineMinDist(raw_buffer, N_LENGTH, maxEntry, minEntry, R, W_LENGTH, ref this_id_item, ref this_id_itemList, ref this_recList, ref this_RTree, true);
                             this_best_so_far_dist_TheMostDiscord = result[0];
+                            result = new List<double> { -1, -1 };
                             break;
                     }
                     is_the_first_time = false;
+                    watch2.Stop();
+                    elapsedMs2 = watch2.ElapsedMilliseconds;
                     //print through console 
                     Console.WriteLine("\n\t best_so_far_dist = " + result.ElementAt(0) +
                                          "\n\t best_so_far_loc = " + result.ElementAt(1) +
@@ -149,9 +155,9 @@ namespace DiscordDiscovery
                             // call updateChart fucntion in GUI thread by chart thread
 
                             if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
-                                this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH); });
+                                this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
                             else
-                                this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH); });
+                                this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
                         }
                         catch
                         { }
@@ -180,8 +186,8 @@ namespace DiscordDiscovery
                         {
                             file.WriteLine(elapsedMs);
                         }
-
-                        Statistical_Form statistical_form = new Statistical_Form(result_loc, result_dist, elapsedMs);
+                        this.txt_speed.Text = "0";
+                        Statistical_Form statistical_form = new Statistical_Form(algorithm, file_name, result_loc, result_dist, elapsedMs);
                         System.Windows.Forms.MessageBox.Show("stream_data ran out of points");
                         Console.WriteLine("num norm: " + num_nor);
                         return;
@@ -374,6 +380,7 @@ namespace DiscordDiscovery
                                          "\n\t best_so_far_loc = " + result.ElementAt(1) +
                                           "\n\t execution_time = " + elapsedMs2);
                     Console.WriteLine("----------------- finished i = {0}--------------- \n\n", index_stream);
+                    
                     index_stream++;// make 'index' increase by 1 to get the next data point
                 }//end else
 
@@ -385,9 +392,9 @@ namespace DiscordDiscovery
                         // call updateChart fucntion in GUI thread by chart thread
 
                         if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
-                            this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH); });
+                            this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
                         else
-                            this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH); });
+                            this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
                     }
                     catch
                     { }
@@ -401,12 +408,20 @@ namespace DiscordDiscovery
             }
         }
 
-        private void updateChart(List<double> norm_buffer, int loc, int N_LENGTH)
+        private void updateChart(List<double> norm_buffer, int loc, int N_LENGTH, int index_stream, double elapsedMs2)
         {
+            // update status
+            txt_index_stream.Text = index_stream.ToString();
+            if (elapsedMs2 == 0)
+                txt_speed.Text = "Infinite";
+            else
+                txt_speed.Text = Math.Round(1000.0 / elapsedMs2, 1).ToString();
+
+            // update chart
             chart_timeSeries.Series["data"].Points.Clear();
             for (int i = 0; i < norm_buffer.Count; i++)
             {
-                chart_timeSeries.Series["data"].Points.AddY(norm_buffer[i]);
+                chart_timeSeries.Series["data"].Points.AddXY(i, norm_buffer[i]);
                 if (loc <= i && i < loc + N_LENGTH && loc >= 0)
                 {
                     chart_timeSeries.Series["data"].Points[i].Color = Color.Red;
@@ -424,11 +439,9 @@ namespace DiscordDiscovery
             this.txt_threshold_std.Clear();
             //this.txt_threshold.Clear();
             this.txt_period.Clear();
-            this.txt_status.Text = "Cleared !";
         }
         private void btn_GetW_Click(object sender, EventArgs e)
         {
-            this.txt_status.Text = "Ready"; 
               
             int N_LENGTH = Convert.ToInt16(txt_NLength.Text);
             //todo /*Duc*/
@@ -586,9 +599,19 @@ namespace DiscordDiscovery
             switch (this.combox_filename.SelectedItem.ToString())
             {
                 case "ECG.txt":
-                    setValues("40", "4", "375", "0.001", "0.01", "0.95", "2", "25", "12");
+                    setValues("40", "5", "371", "0.001", "0.01", "0.95", "2", "25", "12", "10");
                     break;
                 case "TEK16.txt":
+                    setValues("128", "5", "1007", "0.001", "0.01", "0.85", "2", "25", "12", "2");
+                    break;
+                case "power_data.txt":
+                    setValues("200", "4", "672", "0.05", "0.15", "0.85", "2", "25", "12", "5");
+                    break;
+                case "nprs43.txt":
+                    setValues("160", "3", "40", "0.05", "0.15", "0.85", "2", "25", "12", "75");
+                    break;
+                case "ERP.csv":
+                    setValues("64", "4", "1280", "0.001", "0.01", "0.95", "2", "25", "12", "2");
                     break;
             }
         }
@@ -791,7 +814,7 @@ namespace DiscordDiscovery
             List<double> dist = null, loc = null;
             double time = 0;
             IOFuncs.readStatisticalFile(file_name, algorithm, ref dist, ref loc, ref time);
-            Statistical_Form new_form = new Statistical_Form(loc, dist, time);
+            Statistical_Form new_form = new Statistical_Form(algorithm, file_name, loc, dist, time);
         }
 
         private void textBox29_TextChanged(object sender, EventArgs e)
@@ -807,11 +830,11 @@ namespace DiscordDiscovery
 
         private void txt_bufferLength_TextChanged(object sender, EventArgs e)
         {
-            int length = (Convert.ToInt16(txt_bufferLength.Text) * Convert.ToInt16(txt_period.Text));
+            int length = (Convert.ToInt16(string.IsNullOrEmpty(txt_bufferLength.Text) ? "0" : txt_bufferLength.Text) * Convert.ToInt16(string.IsNullOrEmpty(txt_period.Text) ? "0" : txt_period.Text));
             txt_buffer_length.Text = length.ToString();
         }
 
-        private void setValues(string txt_N_LENGTH, string txt_WLength, string period, string txt_threshold_mean, string txt_threshold_std, string txt_threshold_sim, string R, string maxEntry, string minEntry)
+        private void setValues(string txt_N_LENGTH, string txt_WLength, string period, string txt_threshold_mean, string txt_threshold_std, string txt_threshold_sim, string R, string maxEntry, string minEntry, string bufferLength)
         {
             this.txt_period.Text = period;
             this.txt_WLength.Text = txt_WLength;
@@ -822,6 +845,7 @@ namespace DiscordDiscovery
             this.txt_threshold_mean.Text = txt_threshold_mean;
             this.txt_threshold_std.Text = txt_threshold_std;
             this.txt_threshold_sim.Text = txt_threshold_sim;
+            this.txt_bufferLength.Text = bufferLength;
         }
     }
 }
