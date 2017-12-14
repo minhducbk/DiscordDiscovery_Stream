@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btn_getW = new System.Windows.Forms.Button();
             this.txt_threshold = new System.Windows.Forms.TextBox();
             this.label_threshold = new System.Windows.Forms.Label();
@@ -510,26 +510,26 @@
             // 
             // chart_timeSeries
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart_timeSeries.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart_timeSeries.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart_timeSeries.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_timeSeries.Legends.Add(legend1);
             this.chart_timeSeries.Location = new System.Drawing.Point(282, 12);
             this.chart_timeSeries.Name = "chart_timeSeries";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.IsVisibleInLegend = false;
-            series3.Legend = "Legend1";
-            series3.Name = "data";
-            this.chart_timeSeries.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "data";
+            this.chart_timeSeries.Series.Add(series1);
             this.chart_timeSeries.Size = new System.Drawing.Size(940, 497);
             this.chart_timeSeries.TabIndex = 38;
             this.chart_timeSeries.Text = "Chart";
-            title3.DockedToChartArea = "ChartArea1";
-            title3.DockingOffset = -6;
-            title3.Name = "Chart";
-            title3.Text = "Chart";
-            this.chart_timeSeries.Titles.Add(title3);
+            title1.DockedToChartArea = "ChartArea1";
+            title1.DockingOffset = -6;
+            title1.Name = "Chart";
+            title1.Text = "Chart";
+            this.chart_timeSeries.Titles.Add(title1);
             // 
             // Estimate_Period
             // 
@@ -633,7 +633,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chart_timeSeries);
             this.Name = "Main_Form";
-            this.Text = "HOTSAX_STREAM ver 2.2-Sep 4th 2017";
+            this.Text = "DISCORD_DISCOVERY_STREAM ver 2.2-Sep 4th 2017";
             this.Load += new System.EventHandler(this.form_SAX_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

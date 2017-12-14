@@ -97,7 +97,7 @@ namespace DiscordDiscovery
             List<BoundingBox.Rectangle> dumb_rectlist = new List<BoundingBox.Rectangle>();
             RTree<int> dumb_rtree = new RTree<int>(maxEntry, minEntry);
 
-            // Sanchez_method
+            // Sanchez_Online
             double this_best_so_far_dist_TheMostDiscord = -Constants.INFINITE;
 
 
@@ -133,7 +133,7 @@ namespace DiscordDiscovery
                             this_best_so_far_dist = result[0];
                             this_best_so_far_loc = result[1];
                             break;
-                        case "Sanchez_Method":
+                        case "Sanchez_Online":
                             result = BoundingBox.BoundingBoxDiscordDiscovery.RunOfflineMinDist(raw_buffer, N_LENGTH, maxEntry, minEntry, R, W_LENGTH, ref this_id_item, ref this_id_itemList, ref this_recList, ref this_RTree, true);
                             this_best_so_far_dist_TheMostDiscord = result[0];
                             result = new List<double> { -1, -1 };
@@ -154,7 +154,7 @@ namespace DiscordDiscovery
                         {
                             // call updateChart fucntion in GUI thread by chart thread
 
-                            if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
+                            if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Online")
                                 this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
                             else
                                 this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
@@ -186,7 +186,6 @@ namespace DiscordDiscovery
                         {
                             file.WriteLine(elapsedMs);
                         }
-                        this.txt_speed.Text = "0";
                         Statistical_Form statistical_form = new Statistical_Form(algorithm, file_name, result_loc, result_dist, elapsedMs);
                         System.Windows.Forms.MessageBox.Show("stream_data ran out of points");
                         Console.WriteLine("num norm: " + num_nor);
@@ -350,7 +349,7 @@ namespace DiscordDiscovery
                             this_best_so_far_loc = result[1];
 
                             break;
-                        case "Sanchez_Method":
+                        case "Sanchez_Online":
                             //update last_sub at time t to get new_sub at time (t+1):
                             last_sub.Add(next_data_point);
                             last_sub.RemoveAt(0);
@@ -391,7 +390,7 @@ namespace DiscordDiscovery
                     {
                         // call updateChart fucntion in GUI thread by chart thread
 
-                        if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
+                        if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Online")
                             this.Invoke((MethodInvoker)delegate { updateChart(raw_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
                         else
                             this.Invoke((MethodInvoker)delegate { updateChart(norm_buffer, (int)(result[1]), N_LENGTH, index_stream, elapsedMs2); });
@@ -430,15 +429,10 @@ namespace DiscordDiscovery
         }
         private void btn_clear_Click(object sender, EventArgs e)
         {
-
-            //this.txt_best_so_far_dist_Heuristic.Clear();
-            //this.txt_best_so_far_loc_Heuristic.Clear();
-            //this.txt_execution_time_Heuristic.Clear();
             this.txt_WLength.Clear();
             this.txt_threshold_mean.Clear();
             this.txt_threshold_std.Clear();
-            //this.txt_threshold.Clear();
-            this.txt_period.Clear();
+            this.txt_threshold_sim.Clear();
         }
         private void btn_GetW_Click(object sender, EventArgs e)
         {
@@ -490,7 +484,7 @@ namespace DiscordDiscovery
                 combox_filename.Text = default_file;// set default value for the combox
 
             /*combox_algorithm*/
-            string[] algorithms = { "BFHS", "HOTSAX_Stream", "HOTSAX_Squeezer_Stream", "Bounding_Box", "Sanchez_Method" };
+            string[] algorithms = { "BFHS", "HOTSAX_Stream", "HOTSAX_Squeezer_Stream", "Bounding_Box", "Sanchez_Online" };
             foreach (string algorithm in algorithms)
                 this.combox_algorithm.Items.Add(algorithm);
             string default_algorithm = "HOTSAX_Squeezer_Stream";
@@ -566,7 +560,7 @@ namespace DiscordDiscovery
             //normalize buffer:
             List<double> norm_buffer = HOTSAX.HOTSAX.normalizeData(raw_buffer, buffer_len, N_LENGTH);
 
-            if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Method")
+            if (algorithm == "Bounding_Box" || algorithm == "Sanchez_Online")
             {
                 //SCALE:
                 chart_timeSeries.ChartAreas[0].AxisY.Maximum = raw_buffer.Max() * SCALE;

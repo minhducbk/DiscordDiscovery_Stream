@@ -17,7 +17,7 @@ namespace DiscordDiscovery
         {
             InitializeComponent();
             this.Text = "Statistical_" + algorithm + "_" + data_name;
-            if (algorithm == "Sanchez_Method")
+            if (algorithm == "Sanchez_Online")
             {
                 chart_position_discord.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
                 chart_distance.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
@@ -29,6 +29,7 @@ namespace DiscordDiscovery
             }
             updateChartLoc(result_loc);
             updateChartDist(result_dist);
+            DesktopLocation = new Point(100, 100);
             this.txt_time.Text = (time / 1000).ToString() + " s";
             this.Show();
         }
@@ -51,8 +52,8 @@ namespace DiscordDiscovery
 
             for (int i = 0; i < result_loc.Count; i++)
             {
-                if (result_loc[i] >= 0)
-                    chart_position_discord.Series["position"].Points.AddXY(i+1, result_loc[i]);
+                if (i > 0)
+                    chart_position_discord.Series["position"].Points.AddXY(i, result_loc[i]);
             }
         }
 
@@ -72,8 +73,8 @@ namespace DiscordDiscovery
             }
             for (int i = 0; i < result_dist.Count; i++)
             {
-                if (result_dist[i] >= 0)
-                    chart_distance.Series["distance"].Points.AddXY(i+1, result_dist[i]);
+                if (i > 0)
+                    chart_distance.Series["distance"].Points.AddXY(i, result_dist[i]);
             }
         }
     }

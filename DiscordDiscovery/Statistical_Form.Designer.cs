@@ -1,4 +1,7 @@
-﻿namespace DiscordDiscovery
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace DiscordDiscovery
 {
     partial class Statistical_Form
     {
@@ -46,7 +49,6 @@
             // 
             // chart_position_discord
             // 
-            this.chart_position_discord.Anchor = System.Windows.Forms.AnchorStyles.None;
             chartArea1.AxisX.Title = "Thời gian";
             chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
             chartArea1.AxisY.Title = "Vị trí bất thường";
@@ -54,8 +56,8 @@
             chartArea1.Name = "ChartArea1";
             chartArea1.Position.Auto = false;
             chartArea1.Position.Height = 94F;
-            chartArea1.Position.Width = 77.53266F;
-            chartArea1.Position.X = 3F;
+            chartArea1.Position.Width = 92F;
+            chartArea1.Position.X = 2F;
             chartArea1.Position.Y = 6F;
             this.chart_position_discord.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -73,13 +75,13 @@
             this.chart_position_discord.Text = "Chart";
             title1.DockedToChartArea = "ChartArea1";
             title1.DockingOffset = -8;
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title1.Name = "Chart";
-            title1.Text = "Vị trí bắt đầu của chuỗi con bất đồng theo thời gian";
+            title1.Text = "BIỂU ĐỒ VỊ TRÍ BẮT ĐẦU CỦA CHUỖI CON BẤT ĐỒNG THEO THỜI GIAN";
             this.chart_position_discord.Titles.Add(title1);
             // 
             // chart_distance
             // 
-            this.chart_distance.Anchor = System.Windows.Forms.AnchorStyles.None;
             chartArea2.AxisX.Title = "Thời gian";
             chartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
             chartArea2.AxisY.Title = "Khoảng cách bất thường";
@@ -87,8 +89,8 @@
             chartArea2.Name = "ChartArea1";
             chartArea2.Position.Auto = false;
             chartArea2.Position.Height = 94F;
-            chartArea2.Position.Width = 77.53266F;
-            chartArea2.Position.X = 3F;
+            chartArea2.Position.Width = 92F;
+            chartArea2.Position.X = 2F;
             chartArea2.Position.Y = 6F;
             this.chart_distance.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
@@ -106,9 +108,10 @@
             this.chart_distance.Text = "Chart";
             title2.DockedToChartArea = "ChartArea1";
             title2.DockingOffset = -8;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title2.Name = "Chart";
-            title2.Text = "Khoảng cách đến khớp không tầm thường gần nhất của chuỗi con bất đồng" +
-    " theo thời gian";
+            title2.Text = "BIỂU ĐỒ KHOẢNG CÁCH ĐẾN KHỚP KHÔNG TẦM THƯỜNG GẦN NHẤT CỦA CHUỖI CON " +
+    "BẤT ĐỒNG THEO THỜI GIAN";
             this.chart_distance.Titles.Add(title2);
             // 
             // label1
@@ -143,6 +146,7 @@
             this.Controls.Add(this.chart_distance);
             this.Controls.Add(this.chart_position_discord);
             this.Name = "Statistical_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Statistical";
             ((System.ComponentModel.ISupportInitialize)(this.chart_position_discord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_distance)).EndInit();
